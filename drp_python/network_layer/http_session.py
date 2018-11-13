@@ -63,6 +63,7 @@ class HttpSession:
             self.authorize()
         headers = {'Authorization': 'Bearer ' + self.token}
         actual_resource = resource
+        logger.info(actual_resource)
         if key is not None:
             actual_resource = actual_resource + '/' + key
         r = requests.get(self.url + '/api/v3/' + actual_resource,
