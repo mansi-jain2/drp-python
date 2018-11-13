@@ -59,6 +59,8 @@ class HttpSession:
         return self.token != ''
 
     def get(self, resource, key=None):
+        logger.info(resource)
+        logger.info("print resource")
         if not self.is_authorized():
             self.authorize()
         headers = {'Authorization': 'Bearer ' + self.token}
